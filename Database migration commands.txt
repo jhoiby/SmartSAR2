@@ -1,0 +1,8 @@
+To do database migrations use the following procedure
+
+------------
+Identity
+
+Set default project in PM console to SmartSAR.BC.Identity.Infrastructure
+add-migration initial -o  Data/Migrations -c SmartSAR.BC.Identity.Infrastructure.Data.IdentityDbContext
+update-database -c SmartSAR.BC.Identity.Infrastructure.Data.IdentityDbContext
