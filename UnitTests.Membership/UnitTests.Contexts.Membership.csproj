@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmartSAR.BC.Common\SmartSAR.BC.Common.csproj" />
+    <ProjectReference Include="..\SmartSAR.BC.Membership.Domain\Contexts.Membership.Domain.csproj" />
   </ItemGroup>
 
 </Project>

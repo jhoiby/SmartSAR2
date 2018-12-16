@@ -15,7 +15,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\SmartSAR.BC.Identity.Infrastructure\SmartSAR.BC.Identity.Infrastructure.csproj" />
+    <ProjectReference Include="..\SmartSAR.BC.Identity.Infrastructure\Contexts.Identity.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
