@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A161F120-6
 		Database migration commands.txt = Database migration commands.txt
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartSAR.BC.Common", "SmartSAR.BC.Common\SmartSAR.BC.Common.csproj", "{0338DA49-48BF-4AA8-8782-90FC2D6DCA24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{02F2DB54-0C93-414C-B70F-1933D75F402F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F2DB54-0C93-414C-B70F-1933D75F402F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F2DB54-0C93-414C-B70F-1933D75F402F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0338DA49-48BF-4AA8-8782-90FC2D6DCA24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0338DA49-48BF-4AA8-8782-90FC2D6DCA24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0338DA49-48BF-4AA8-8782-90FC2D6DCA24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0338DA49-48BF-4AA8-8782-90FC2D6DCA24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{9542F15E-FF2F-4193-A34D-C04DCC137625} = {C6374877-A210-4BAB-97FE-BC45DAF4A16C}
 		{72E1B51A-8953-46D3-AB23-3E21A02F2528} = {9542F15E-FF2F-4193-A34D-C04DCC137625}
 		{02F2DB54-0C93-414C-B70F-1933D75F402F} = {72E1B51A-8953-46D3-AB23-3E21A02F2528}
+		{0338DA49-48BF-4AA8-8782-90FC2D6DCA24} = {9542F15E-FF2F-4193-A34D-C04DCC137625}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C73CD30A-B7F0-46F6-9F22-12EAAB0C1DC7}
