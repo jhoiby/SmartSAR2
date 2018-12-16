@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartSAR.BC.Common.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,9 +9,14 @@ using System.Text;
 
 namespace SmartSAR.BC.Common.Bases
 {
-    public abstract class EntityBase
+    public abstract class EntityBase : IEntity
     {
         private Guid _id;
+
+        public EntityBase()
+        {
+            _id = Guid.NewGuid();
+        }
 
         public Guid Id
         {
