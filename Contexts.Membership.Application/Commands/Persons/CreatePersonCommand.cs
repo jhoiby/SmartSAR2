@@ -5,15 +5,21 @@ using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class CreatePersonCommand : IRequest
+    public class CreatePersonCommand : IRequest<Guid>
     {
-        public CreatePersonCommand(string firstName, string lastName)
+        public CreatePersonCommand()
+        {
+        }
+
+        public CreatePersonCommand(Guid requestId, string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;
+            RequestId = requestId;
         }
 
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
+        public Guid RequestId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

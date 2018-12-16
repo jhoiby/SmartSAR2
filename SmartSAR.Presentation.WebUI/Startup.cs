@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contexts.Membership.Application.Commands.Persons;
+using HtmlTags;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -13,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SmartSAR.BC.Identity.Infrastructure.Data;
+using MediatR;
 
 namespace SmartSAR.Presentation.WebUI
 {
@@ -48,6 +51,9 @@ namespace SmartSAR.Presentation.WebUI
                 microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
                 microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
             });
+
+            services.AddMediatR(typeof(CreatePersonCommandHandler).Assembly);
+            services.AddHtmlTags();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

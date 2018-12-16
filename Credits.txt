@@ -1,0 +1,4 @@
+HtmlTagHelpers
+- Many of the HtmlTagHelpers used and modified from Jimmy Bogard's Contoso University with Razor example.
+- This is an excellent sample resource of simplified CQRS with a mediator on AspNetCore and Razor.
+- https://jimmybogard.com/migrating-contoso-university-example-to-razor-pages/ 

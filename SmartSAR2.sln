@@ -20,6 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Identity.Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A161F120-60C0-4F36-888B-55F79288E157}"
 	ProjectSection(SolutionItems) = preProject
+		Credits.txt = Credits.txt
 		Database migration commands.txt = Database migration commands.txt
 	EndProjectSection
 EndProject
@@ -33,9 +34,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3A22A1C9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Contexts.Membership", "UnitTests.Membership\UnitTests.Contexts.Membership.csproj", "{AB0CD48C-1F47-43D3-921A-FD88A3C8D051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.Contexts.Common", "UnitTests.BoundedContextsCommon\UnitTests.Contexts.Common.csproj", "{D60B947A-1344-4249-B6FF-EBACD75052FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Contexts.Common", "UnitTests.BoundedContextsCommon\UnitTests.Contexts.Common.csproj", "{D60B947A-1344-4249-B6FF-EBACD75052FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contexts.Membership.Application", "Contexts.Membership.Application\Contexts.Membership.Application.csproj", "{82F5E118-327F-4301-8113-9FF4449E5ACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Membership.Application", "Contexts.Membership.Application\Contexts.Membership.Application.csproj", "{82F5E118-327F-4301-8113-9FF4449E5ACA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
