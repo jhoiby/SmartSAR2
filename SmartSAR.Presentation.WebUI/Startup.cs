@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contexts.Membership.Application.Commands.Persons;
+using Contexts.Membership.Data;
 using HtmlTags;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -41,6 +42,10 @@ namespace SmartSAR.Presentation.WebUI
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("IdentityDbConnection")));
+
+            services.AddDbContext<MembershipDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("MembershipDbConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<IdentityDbContext>()

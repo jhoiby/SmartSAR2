@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Contexts.Membership.Application\Contexts.Membership.Application.csproj" />
+    <ProjectReference Include="..\Contexts.Membership.Data\Contexts.Membership.Data.csproj" />
     <ProjectReference Include="..\SmartSAR.BC.Identity.Infrastructure\Contexts.Identity.Infrastructure.csproj" />
   </ItemGroup>
 

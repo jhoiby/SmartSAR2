@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Contexts.Membership.Data\Contexts.Membership.Data.csproj" />
     <ProjectReference Include="..\SmartSAR.BC.Membership.Domain\Contexts.Membership.Domain.csproj" />
   </ItemGroup>
 
