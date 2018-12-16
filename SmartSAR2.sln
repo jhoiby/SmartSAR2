@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{72
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Identity.Infrastructure", "SmartSAR.BC.Identity.Infrastructure\Contexts.Identity.Infrastructure.csproj", "{02F2DB54-0C93-414C-B70F-1933D75F402F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Identity.Data", "SmartSAR.BC.Identity.Infrastructure\Contexts.Identity.Data.csproj", "{02F2DB54-0C93-414C-B70F-1933D75F402F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A161F120-60C0-4F36-888B-55F79288E157}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Contexts.Common",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Membership.Application", "Contexts.Membership.Application\Contexts.Membership.Application.csproj", "{82F5E118-327F-4301-8113-9FF4449E5ACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contexts.Membership.Data", "Contexts.Membership.Data\Contexts.Membership.Data.csproj", "{11181BA0-EC30-47A8-80B8-17614D0ECE05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Membership.Data", "Contexts.Membership.Data\Contexts.Membership.Data.csproj", "{11181BA0-EC30-47A8-80B8-17614D0ECE05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
