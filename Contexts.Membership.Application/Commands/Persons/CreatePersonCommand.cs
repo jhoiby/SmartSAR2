@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class CreatePersonCommand
+    public class CreatePersonCommand : IRequest
     {
         public CreatePersonCommand(string firstName, string lastName)
         {
