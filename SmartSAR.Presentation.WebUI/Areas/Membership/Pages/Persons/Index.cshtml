@@ -12,3 +12,26 @@
 </div>
 
 
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Last Name</th>
+        <th scope="col">First Name</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        @foreach (var person in Model.Data)
+        {
+            <td>@person.LastName</td>
+            <td>@person.FirstName</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@person.Id">Edit</a> |
+                <a asp-page="Details" asp-route-id="@person.Id">Details</a> |
+                <a asp-page="Delete" asp-route-id="@person.Id">Delete</a>
+            </td>
+        }
+    </tr>
+    </tbody>
+</table>
