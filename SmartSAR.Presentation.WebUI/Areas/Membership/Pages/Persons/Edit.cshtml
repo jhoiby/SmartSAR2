@@ -1,0 +1,34 @@
+﻿@page
+@using Presentation.WebUI.Infrastructure.Tags
+@model Presentation.WebUI.Areas.Membership.Pages.Persons.EditModel
+@{
+    Layout = "_Layout";
+}
+
+<h2>Edit</h2>
+
+@*<div class="pb-4">
+        <a asp-area="Membership" asp-page="/Persons/Edit/@Model.Data.Id">Edit Details</a>
+    </div>*@
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            @Html.ValidationDiv()
+            <input-tag for="Data.Id" hidden="true"/>
+
+            @Html.FormBlock(m => m.Data.FirstName)
+            @Html.FormBlock(m => m.Data.LastName)
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to list</a>
+</div>

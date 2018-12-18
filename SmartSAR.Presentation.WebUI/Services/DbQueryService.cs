@@ -33,5 +33,20 @@ namespace Presentation.WebUI.Services
 
             return result;
         }
+
+        public async Task<T> Query<T>(string sqlQuery, object param = null)
+        {
+            T result;
+
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("MembershipDbConnection")))
+            {
+                // TODO: Getting complex enough to recommend unit testing this class
+                // TODO: Consider strategy for return count = 0 or > 1
+
+                result = await connection.QuerySingleOrDefaultAsync<T>(sqlQuery, param);
+            }
+
+            return result;
+        }
     }
 }

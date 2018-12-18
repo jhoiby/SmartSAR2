@@ -19,5 +19,17 @@ namespace SmartSAR.BC.Membership.Domain.Aggregates
 
         public string FirstName => _firstName;
         public string LastName => _lastName;
+
+        public void SetFirstName(string firstName)
+        {
+            // TODO: Fix naive implementation
+            _firstName = firstName;
+        }
+
+        public void SetLastName(string lastName)
+        {
+            // TODO: Fix naive implementation
+            _lastName = lastName;
+        }
     }
 }

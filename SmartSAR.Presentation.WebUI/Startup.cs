@@ -59,7 +59,7 @@ namespace SmartSAR.Presentation.WebUI
                 microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
                 microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
             });
-
+            
             services.AddAutoMapper(typeof(Startup));
 
             services.AddMediatR(
@@ -71,6 +71,7 @@ namespace SmartSAR.Presentation.WebUI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSingleton(Configuration);
+
             services.AddSingleton<DbQueryService>();
         }
 
