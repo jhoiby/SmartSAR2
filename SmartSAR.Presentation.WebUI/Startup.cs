@@ -17,6 +17,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SmartSAR.BC.Identity.Infrastructure.Data;
 using MediatR;
+using AutoMapper;
+using Presentation.WebUI.Services;
 
 namespace SmartSAR.Presentation.WebUI
 {
@@ -46,6 +48,7 @@ namespace SmartSAR.Presentation.WebUI
             services.AddDbContext<MembershipDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("MembershipDbConnection")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<IdentityDbContext>()
@@ -57,10 +60,18 @@ namespace SmartSAR.Presentation.WebUI
                 microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
             });
 
-            services.AddMediatR(typeof(CreatePersonCommandHandler).Assembly);
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddMediatR(
+                typeof(CreatePersonCommandHandler).Assembly, 
+                typeof(Startup).Assembly);
+
             services.AddHtmlTags();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSingleton(Configuration);
+            services.AddSingleton<DbQueryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

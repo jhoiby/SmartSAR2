@@ -1,0 +1,29 @@
+FUTURE PERFORMANCE OPTIMAZATIONS
+
+To optimize performance if needed, consider the following:
+
+Cache queries
+- Setup a query caching system to reduce database hits.
+
+Use a single-page application with client caching
+- Convert to a SPA and cache data as much as possible on the query side.
+
+Client-side validation
+- Push trivial validation rules to the client for immediate form validation. This
+has been skipped on the first versions to reduce developer workload.
+
+Reduce/separate the query stack
+- Currently the query stack reaches down to the bounded context and uses EF
+to operate on the aggreate root. An optimal solution would be to get as close
+as possible to SQL select statements right in the UI layer. The current EF approach
+was used because in early development the data model is in flux and using EF protected
+me from having to frequently update read models each time the data model changed.
+
+Pull bounded contexts out into microservices
+- Part of the reason for using the separated bounded contexts and event driven 
+communications was to reduce the pain of converting to individual microservices in the
+future.
+
+Optimized read databases
+- If the program is rolled out across a large number of organizations and performance
+is lagging, consider using separated and optimized read databases on the query side.

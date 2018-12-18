@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Contexts.Common",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Membership.Data", "Contexts.Membership.Data\Contexts.Membership.Data.csproj", "{11181BA0-EC30-47A8-80B8-17614D0ECE05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contexts.Membership.Application", "Contexts.Membership.Application\Contexts.Membership.Application.csproj", "{509ADEA0-D638-4387-B501-35533C153BED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contexts.Membership.Application", "Contexts.Membership.Application\Contexts.Membership.Application.csproj", "{509ADEA0-D638-4387-B501-35533C153BED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
