@@ -18,14 +18,14 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
     {
         private IMapper _mapper;
 
-        [BindProperty]
-        public Result Data { get; set; }
-
         public EditModel(IMapper mapper)
         {
             _mapper = mapper;
         }
-    
+
+        [BindProperty]
+        public Result Data { get; set; }
+
         public async Task OnGetAsync(Guid personId)
         {
             Data = await Mediator.Send(new Query(personId));

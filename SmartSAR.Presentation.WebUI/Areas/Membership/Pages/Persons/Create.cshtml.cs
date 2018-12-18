@@ -11,6 +11,9 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
 {
     public class CreateModel : PageModelBase
     {
+        [BindProperty]
+        public CreatePersonCommand Data { get; set; }
+
         public void OnGet()
         {
         }
@@ -23,8 +26,5 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
 
             return RedirectToPage("Index");
         }
-
-        [BindProperty]
-        public CreatePersonCommand Data { get; set; }
     }
 }
