@@ -23,13 +23,13 @@ namespace Presentation.WebUI.Services
         _configuration = configuration;
     }
 
-        public IndexModel.Result Query(string sqlQuery)
+        public List<T> ListQuery<T>(string sqlQuery)
         {
-            var result = new IndexModel.Result();
+            List<T> result;
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("MembershipDbConnection")))
             {
-                result.Persons = connection.Query<IndexModel.Result.Person>(sqlQuery).ToList();
+                result = connection.Query<T>(sqlQuery).ToList();
             }
 
             return result;

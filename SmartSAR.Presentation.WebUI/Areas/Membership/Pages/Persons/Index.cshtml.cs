@@ -1,21 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper.QueryableExtensions;
-using Contexts.Membership.Application;
-using Contexts.Membership.Application.Queries.Persons;
-using Contexts.Membership.Data;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Presentation.WebUI.Pages;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Configuration;
-using Dapper;
 using Presentation.WebUI.Services;
 
 namespace Presentation.WebUI.Areas.Membership.Pages.Persons
@@ -32,7 +22,6 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
 
         public class Query : IRequest<Result>
         {
-            // Empty query
         }
         
         public class Result
@@ -49,7 +38,7 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
         public class Handler : IRequestHandler<Query, Result>
         {
             private IConfiguration _appConfig;
-            private DbQueryService _queryService;
+            private readonly DbQueryService _queryService;
 
             public Handler(DbQueryService queryService ,IConfiguration appConfig)
             {
@@ -58,9 +47,8 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
             }
 
             public async Task<Result> Handle(Query request, CancellationToken cancellationToken)
-            {
-                return _queryService.Query("SELECT * FROM PERSONS");
-            }
+                => new Result { Persons = _queryService.ListQuery<Result.Person>("SELECT * FROM PERSONS") };
+            
         }
     }
 }
