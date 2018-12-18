@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using Contexts.Membership.Application.Queries.Persons;
 using Dapper;
 using Microsoft.AspNetCore.Razor.Language.Intermediate;
 using Microsoft.Extensions.Configuration;
@@ -23,13 +22,13 @@ namespace Presentation.WebUI.Services
         _configuration = configuration;
     }
 
-        public List<T> ListQuery<T>(string sqlQuery)
+        public async Task<List<T>> ListQuery<T>(string sqlQuery)
         {
             List<T> result;
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("MembershipDbConnection")))
             {
-                result = connection.Query<T>(sqlQuery).ToList();
+                result = (await connection.QueryAsync<T>(sqlQuery)).ToList();
             }
 
             return result;

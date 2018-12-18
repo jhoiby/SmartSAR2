@@ -47,7 +47,7 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
             }
 
             public async Task<Result> Handle(Query request, CancellationToken cancellationToken)
-                => new Result { Persons = _queryService.ListQuery<Result.Person>("SELECT * FROM PERSONS") };
+                => new Result { Persons = await _queryService.ListQuery<Result.Person>("SELECT * FROM PERSONS") };
             
         }
     }
