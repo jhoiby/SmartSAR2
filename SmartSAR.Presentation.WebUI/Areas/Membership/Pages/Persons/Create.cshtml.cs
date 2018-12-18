@@ -17,12 +17,11 @@ namespace Presentation.WebUI.Areas.Membership.Pages.Persons
 
         public async Task<IActionResult> OnPostAsync()
         {
+            // TODO: Handle validation errors
+
             await Mediator.Send(Data);
 
-            Data = new CreatePersonCommand();
-            ModelState.Clear();
-
-            return Page();
+            return RedirectToPage("Index");
         }
 
         [BindProperty]
