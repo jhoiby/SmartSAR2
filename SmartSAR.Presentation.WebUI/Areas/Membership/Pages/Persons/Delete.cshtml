@@ -1,0 +1,23 @@
+﻿@page
+@model Presentation.WebUI.Areas.Membership.Pages.Persons.DeleteModel
+@{
+    Layout = "_Layout";
+}
+
+<h2>Delete</h2>
+
+<h4>Person</h4>
+
+<form method="post">
+
+    <input-tag for="Data.Id" />
+    
+    <display-tag for="Data.FirstName" /> <display-tag for="Data.LastName" />
+    <p>Warning: Pressing delete will permanently delete the person, their address book, and any other associated data.</p>
+
+    <div class="form-group">
+        <a asp-page="Index" class="btn btn-default btn-success">Cancel</a>
+        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+    </div>
+
+</form>
