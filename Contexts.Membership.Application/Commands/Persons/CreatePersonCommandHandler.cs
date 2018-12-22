@@ -23,7 +23,7 @@ namespace Contexts.Membership.Application.Commands.Persons
         public async Task<ICommandResult> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
         {
             var person = new Person(request.FirstName, request.LastName);
-
+            
             _membershipDb.Persons.Add(person);
             await _membershipDb.SaveChangesAsync();
 

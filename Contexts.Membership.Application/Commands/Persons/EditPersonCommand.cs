@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Contexts.Common.Interfaces;
 using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class EditPersonCommand : IRequest<Guid>
+    public class EditPersonCommand : IRequest<ICommandResult>
     {
         public EditPersonCommand()
         {

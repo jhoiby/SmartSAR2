@@ -4,12 +4,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Contexts.Common.Interfaces;
+using Contexts.Common.Results;
 using Contexts.Membership.Data;
 using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class EditPersonCommandHandler : IRequestHandler<EditPersonCommand, Guid>
+    public class EditPersonCommandHandler : IRequestHandler<EditPersonCommand, ICommandResult>
     {
         private MembershipDbContext _dbContext;
 
@@ -18,7 +20,7 @@ namespace Contexts.Membership.Application.Commands.Persons
             _dbContext = dbContext;
         }
 
-        public async Task<Guid> Handle(EditPersonCommand request, CancellationToken cancellationToken)
+        public async Task<ICommandResult> Handle(EditPersonCommand request, CancellationToken cancellationToken)
         {
             var person = await _dbContext.Persons.FindAsync(request.Id);
 
@@ -27,7 +29,7 @@ namespace Contexts.Membership.Application.Commands.Persons
 
             await _dbContext.SaveChangesAsync();
 
-            return person.Id;
+            return CommandResult.CreateSuccessfulResult();
         }
     }
 }

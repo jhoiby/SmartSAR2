@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Contexts.Common.Interfaces;
 using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class DeletePersonCommand : IRequest<Guid>
+    public class DeletePersonCommand : IRequest<ICommandResult>
     {
         public DeletePersonCommand(Guid requestId, Guid personId)
         {
