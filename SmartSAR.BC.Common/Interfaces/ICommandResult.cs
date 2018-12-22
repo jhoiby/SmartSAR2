@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Contexts.Common.Interfaces
 {
-    public interface ICommonResult
+    public interface ICommandResult
     {
-        bool Succeeded { get; }
-
-        IResultNotifier Notifier { get; }
+        bool IsSuccess { get; }
+        
+        INotificationDictionary ErrorMessages { get; }
 
         dynamic Data { get; }
     }

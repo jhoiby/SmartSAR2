@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Contexts.Common.Interfaces;
 
 namespace Contexts.Common.Results
 {
-    public class ResultErrorDictionary : Dictionary<string, string>
+    public class NotificationDictionary : Dictionary<string, string>, INotificationDictionary
     {
         /// <summary>
         /// A collection of errors that occured during handling of a command. The key
@@ -14,11 +15,11 @@ namespace Contexts.Common.Results
         ///
         /// This types in this class were chosen to work easily with MVC ModelError dictionaries.
         /// </summary>
-        public ResultErrorDictionary()
+        public NotificationDictionary()
         {
         }
 
-        public ResultErrorDictionary(string key, string value)
+        public NotificationDictionary(string key, string value)
         {
             this.Add(key, value);
         }
