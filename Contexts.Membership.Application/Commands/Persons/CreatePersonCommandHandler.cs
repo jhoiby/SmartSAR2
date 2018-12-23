@@ -11,6 +11,10 @@ using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
+
+    // TODO: REMOVE THESE PERSON CRUD METHODS. They are not true DDD and are here only to assist
+    // TODO: with developing the first architectural spike.
+
     public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, ICommandResult>
     {
         private MembershipDbContext _membershipDb;
