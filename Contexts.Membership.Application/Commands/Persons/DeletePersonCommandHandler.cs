@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Contexts.Common.Bases;
 using Contexts.Common.Interfaces;
 using Contexts.Common.Results;
 using Contexts.Membership.Data;
+using Contexts.Membership.Domain.Entities.PersonAggregate;
 using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class DeletePersonCommandHandler : IRequestHandler<DeletePersonCommand, ICommandResult>
+    public class DeletePersonCommandHandler : RequestHandlerBase<DeletePersonCommand, ICommandResult>
     {
         private MembershipDbContext _dbContext;
 
@@ -19,13 +21,11 @@ namespace Contexts.Membership.Application.Commands.Persons
             _dbContext = dbContext;
         }
 
-        public async Task<ICommandResult> Handle(DeletePersonCommand request, CancellationToken cancellationToken)
+        protected override async Task<ICommandResult> HandleCore(DeletePersonCommand request, CancellationToken cancellationToken)
         {
-            _dbContext.Persons.Remove(
-                await _dbContext.Persons.FindAsync(request.PersonId));
-
-            await _dbContext.SaveChangesAsync();
-
+            await Execute<MembershipDbContext, Person>(_dbContext, request.PersonId, agg => 
+            _dbContext.Set<Person>().Remove(agg));
+            
             return CommandResult.CreateSuccessfulResult();
         }
     }
