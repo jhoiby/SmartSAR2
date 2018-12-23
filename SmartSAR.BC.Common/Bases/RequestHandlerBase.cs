@@ -20,7 +20,7 @@ namespace Contexts.Common.Bases
 
         protected abstract Task<TResponse> HandleCore(TRequest request, CancellationToken cancellationToken);
 
-        protected async void Execute<TDbContext, TAggregate>(TDbContext dbContext, Guid id, Action<TAggregate> action)
+        protected async Task Execute<TDbContext, TAggregate>(TDbContext dbContext, Guid id, Action<TAggregate> action)
             where TAggregate : AggregateRootBase
             where TDbContext : DbContext
         {
@@ -29,6 +29,6 @@ namespace Contexts.Common.Bases
             action(aggregate);
 
             await dbContext.SaveChangesAsync();
-        } 
+        }
     }
 }
