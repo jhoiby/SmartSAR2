@@ -23,10 +23,26 @@ namespace Contexts.Membership.Application.Commands.Persons
 
         protected override async Task<CommandResult> HandleCore(DeletePersonCommand request, CancellationToken cancellationToken)
         {
-            await Execute<MembershipDbContext, Person>(_dbContext, request.PersonId, agg => 
-            _dbContext.Set<Person>().Remove(agg));
-            
-            return CommandResult.CreateSuccessful();
+            // TODO: Clean up this ugly code by creating a new Execute method to handle EF commands (as opposed to Aggregate commands
+
+             var executionResult = await Execute<MembershipDbContext, PersonAggregate>(_dbContext, request.PersonId, 
+                    p =>
+                    {
+                        CommandResult result;
+                        try
+                        {
+                            _dbContext.Set<PersonAggregate>().Remove(p);
+                            result = CommandResult.Empty;
+                        }
+                        catch(NullReferenceException ex)
+                        {
+                            result = CommandResult.FromException(ex, "Error: Unable to locate the object in the database.");
+                        }
+
+                        return result;
+                    });
+
+            return executionResult;
         }
     }
 }

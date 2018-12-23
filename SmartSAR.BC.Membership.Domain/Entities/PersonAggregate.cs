@@ -5,30 +5,22 @@ using Contexts.Common.Results;
 
 namespace Contexts.Membership.Domain.Entities
 {
-    public class Person : AggregateRootBase
+    public class PersonAggregate : AggregateRootBase
     {
         private string _firstName;
         private string _lastName;
 
-        public Person(string firstName, string lastName)
+        private PersonAggregate() // For rehydration by EF
+        {
+        }
+
+        public PersonAggregate(string firstName, string lastName)
         {
             SetName(firstName, LastName);
         }
 
         public string FirstName => _firstName;
         public string LastName => _lastName;
-
-        public void SetFirstName(string firstName)
-        {
-            // TODO: Fix naive implementation
-            _firstName = firstName;
-        }
-
-        public void SetLastName(string lastName)
-        {
-            // TODO: Fix naive implementation
-            _lastName = lastName;
-        }
 
         public CommandResult SetName(string firstName, string lastName)
         {

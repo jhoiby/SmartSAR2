@@ -13,17 +13,17 @@ namespace Contexts.Membership.Data
         {
         }
 
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<PersonAggregate> Persons { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Person>()
+            modelBuilder.Entity<PersonAggregate>()
                 .HasKey("_id");
-            modelBuilder.Entity<Person>()
+            modelBuilder.Entity<PersonAggregate>()
                 .Property(b => b.FirstName)
                 .HasField("_firstName");
-            modelBuilder.Entity<Person>()
+            modelBuilder.Entity<PersonAggregate>()
                 .Property(b => b.LastName)
                 .HasField("_lastName");
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Contexts.Common.Results;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,15 +21,25 @@ namespace Contexts.Common.Bases
 
         protected abstract Task<TResponse> HandleCore(TRequest request, CancellationToken cancellationToken);
 
-        protected async Task Execute<TDbContext, TAggregate>(TDbContext dbContext, Guid id, Action<TAggregate> action)
-            where TAggregate : AggregateRootBase
-            where TDbContext : DbContext
+        protected async Task<CommandResult> Execute<TDbContext, TAggregate>(
+            TDbContext dbContext, Guid id, Func<TAggregate, CommandResult> func)
+                where TAggregate : AggregateRootBase
+                where TDbContext : DbContext
         {
-            var aggregate = await dbContext.Set<TAggregate>().FindAsync(id);
+            CommandResult result;
+            
+            try
+            {
+                var aggregate = await dbContext.Set<TAggregate>().FindAsync(id);
+                result = func(aggregate);
+                await dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                result = CommandResult.FromException(ex, "An error occurred while executing a command.");
+            }
 
-            action(aggregate);
-
-            await dbContext.SaveChangesAsync();
+            return result;
         }
     }
 }

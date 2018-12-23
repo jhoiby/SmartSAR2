@@ -14,7 +14,7 @@ namespace Contexts.Common.Bases
 
         protected void ResetResult()
         {
-            _result = CommandResult.CreateWithNotifications(NotificationDictionary.CreateEmpty());
+            _result = CommandResult.FromNotifications(NotificationDictionary.CreateEmpty());
         }
 
         protected void AddNotification(string key, string value)

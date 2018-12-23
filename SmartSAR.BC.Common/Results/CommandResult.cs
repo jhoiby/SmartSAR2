@@ -8,35 +8,41 @@ namespace Contexts.Common.Results
 {
     public class CommandResult
     {
-        private readonly NotificationDictionary _notifications;
-        private readonly dynamic _data;
-
-        private CommandResult(NotificationDictionary notificationDictionary, dynamic data)
+        private CommandResult()
         {
-            _notifications = notificationDictionary ?? new NotificationDictionary();
-            _data = data; // Null allowed
+            Notifications = NotificationDictionary.CreateEmpty();
         }
 
-        public bool NoNotifications => !(_notifications.Count > 0);
+        public bool NoNotifications => !(Notifications.Count > 0);
 
-        public NotificationDictionary Notifications => _notifications;
+        public NotificationDictionary Notifications { get; private set; }
 
-        public dynamic Data => _data;
+        public Exception Exception { get; private set; }
 
-        public static CommandResult CreateSuccessful(dynamic data = default(object))
+        public dynamic Data { get; private set; }
+
+        public static CommandResult Empty => new CommandResult();
+
+        public static CommandResult FromException(Exception ex, string uiNotification = "")
         {
-            // Builds an empty result
-            return new CommandResult(new NotificationDictionary(), data);
+            return new CommandResult
+            {
+                Exception = ex,
+                Notifications = new NotificationDictionary("", uiNotification)
+            };
         }
 
-        public static CommandResult CreateWithNotifications(NotificationDictionary notifications)
+        public static CommandResult FromNotification(string key, string value)
         {
-            return new CommandResult(notifications, new object());
+            return new CommandResult
+            {
+                Notifications = new NotificationDictionary(key, value)
+            };
         }
 
-        public static implicit operator bool(CommandResult result)
+        public static CommandResult FromNotifications(NotificationDictionary notifications)
         {
-            return result.NoNotifications;
+            return new CommandResult{Notifications = notifications};
         }
     }
 }

@@ -21,13 +21,8 @@ namespace Contexts.Membership.Application.Commands.Persons
 
         protected async override Task<CommandResult> HandleCore(EditPersonCommand request, CancellationToken cancellationToken)
         {
-            await Execute<MembershipDbContext, Person>(_dbContext, request.Id, agg =>
-            {
-                agg.SetFirstName(request.FirstName);
-                agg.SetLastName(request.LastName);
-            });
-
-            return CommandResult.CreateSuccessful();
+            return await Execute<MembershipDbContext, PersonAggregate>(_dbContext, request.Id,
+                    p => p.SetName(request.FirstName, request.LastName));
         }
     }
 }

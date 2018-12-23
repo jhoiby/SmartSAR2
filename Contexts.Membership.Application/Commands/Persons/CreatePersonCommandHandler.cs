@@ -26,12 +26,23 @@ namespace Contexts.Membership.Application.Commands.Persons
 
         public async Task<CommandResult> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
         {
-            var person = new Person(request.FirstName, request.LastName);
-            
-            _membershipDb.Persons.Add(person);
-            await _membershipDb.SaveChangesAsync();
+            // TODO: Refactor to use new Execution method pattern
 
-            return CommandResult.CreateSuccessful();
+            CommandResult result;
+
+            try
+            {
+                var person = new PersonAggregate(request.FirstName, request.LastName);
+                _membershipDb.Persons.Add(person);
+                await _membershipDb.SaveChangesAsync();
+                result = CommandResult.Empty;
+            }
+            catch (Exception ex)
+            {
+                result = CommandResult.FromException(ex, "An error occurred while saving the Person.");
+            }
+
+            return result;
         }
     }
 }

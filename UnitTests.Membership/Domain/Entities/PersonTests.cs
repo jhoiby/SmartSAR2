@@ -19,7 +19,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Arrange
             
             // Act
-            var sut = new Person(_validFirstName, _validLastName);
+            var sut = new PersonAggregate(_validFirstName, _validLastName);
 
             // Assert
             Assert.IsAssignableFrom<AggregateRootBase>(sut);
@@ -31,7 +31,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Arrange
 
             // Act
-            var sut = new Person(_validFirstName, _validLastName).Id;
+            var sut = new PersonAggregate(_validFirstName, _validLastName).Id;
 
             // Assert
             Assert.NotEqual(default(Guid), sut);
@@ -45,7 +45,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Arrange
 
             // Act
-            var sut = new Person(_validFirstName, _validLastName);
+            var sut = new PersonAggregate(_validFirstName, _validLastName);
 
             // Assert
             Assert.Same(_validFirstName, sut.FirstName);
@@ -57,7 +57,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Arrange
 
             // Act
-            var sut = new Person(_validFirstName, _validLastName);
+            var sut = new PersonAggregate(_validFirstName, _validLastName);
 
             // Assert
             Assert.Same(_validLastName, sut.LastName);
@@ -71,7 +71,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Act
 
             // Assert
-            Assert.Throws<ArgumentNullException>(() => new Person(null, _validLastName));
+            Assert.Throws<ArgumentNullException>(() => new PersonAggregate(null, _validLastName));
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Act
 
             // Assert
-            Assert.Throws<ArgumentNullException>(() => new Person(_validFirstName, null));
+            Assert.Throws<ArgumentNullException>(() => new PersonAggregate(_validFirstName, null));
         }
 
         [Fact]
@@ -93,7 +93,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Act
 
             // Assert
-            Assert.Throws<ArgumentException>(() => new Person("", _validLastName));
+            Assert.Throws<ArgumentException>(() => new PersonAggregate("", _validLastName));
         }
 
         [Fact]
@@ -104,7 +104,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Act
 
             // Assert
-            Assert.Throws<ArgumentException>(() => new Person(_validFirstName, ""));
+            Assert.Throws<ArgumentException>(() => new PersonAggregate(_validFirstName, ""));
         }
 
         [Theory]
@@ -116,7 +116,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Arrange
 
             // Act
-            var sut = new Person(paddedName, _validLastName).FirstName;
+            var sut = new PersonAggregate(paddedName, _validLastName).FirstName;
 
             // Assert
             Assert.Equal("Bobby Sue", sut);
@@ -131,7 +131,7 @@ namespace UnitTests.Membership.Domain.Entities
             // Arrange
 
             // Act
-            var sut = new Person(_validFirstName, paddedName).LastName;
+            var sut = new PersonAggregate(_validFirstName, paddedName).LastName;
 
             // Assert
             Assert.Equal("Giffords", sut);
