@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using Contexts.Common.Interfaces;
+using Contexts.Common.Results;
 using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class CreatePersonCommand : IRequest<ICommandResult>
+    public class CreatePersonCommand : IRequest<CommandResult>
     {
         public CreatePersonCommand()
         {

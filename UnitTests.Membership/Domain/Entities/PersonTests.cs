@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Contexts.Common.Bases;
-using Contexts.Membership.Domain.Entities.PersonAggregate;
+using Contexts.Membership.Domain.Entities;
 using Xunit;
 
 namespace UnitTests.Membership.Domain.Entities

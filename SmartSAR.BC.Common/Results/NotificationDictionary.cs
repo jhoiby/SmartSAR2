@@ -5,16 +5,16 @@ using Contexts.Common.Interfaces;
 
 namespace Contexts.Common.Results
 {
-    public class NotificationDictionary : Dictionary<string, string>, INotificationDictionary
+    /// <summary>
+    /// A collection of errors that occured during handling of a command. The key
+    /// contains the name of the parameter, if any, that triggered the error. The value
+    /// contains the error message. If the error message is not related to a specific paramater
+    /// or other identifiable item specific to the command/query the key may be set to "".
+    ///
+    /// This types in this class were chosen to work easily with MVC ModelError dictionaries.
+    /// </summary>
+    public class NotificationDictionary : Dictionary<string, string>
     {
-        /// <summary>
-        /// A collection of errors that occured during handling of a command. The key
-        /// contains the name of the parameter, if any, that triggered the error. The value
-        /// contains the error message. If the error message is not related to a specific paramater
-        /// or other identifiable item specific to the command/query the key may be set to "".
-        ///
-        /// This types in this class were chosen to work easily with MVC ModelError dictionaries.
-        /// </summary>
         public NotificationDictionary()
         {
         }
@@ -22,6 +22,13 @@ namespace Contexts.Common.Results
         public NotificationDictionary(string key, string value)
         {
             this.Add(key, value);
+        }
+
+        public bool None => this.Count == 0;
+
+        public static NotificationDictionary CreateEmpty()
+        {
+            return new NotificationDictionary();
         }
 
         // Attempts to add pair to the dictionary. If the key already exists, appends the

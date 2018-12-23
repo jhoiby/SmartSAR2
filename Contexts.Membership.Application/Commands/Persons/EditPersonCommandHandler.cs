@@ -5,12 +5,12 @@ using Contexts.Common.Bases;
 using Contexts.Common.Interfaces;
 using Contexts.Common.Results;
 using Contexts.Membership.Data;
-using Contexts.Membership.Domain.Entities.PersonAggregate;
+using Contexts.Membership.Domain.Entities;
 using MediatR;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {
-    public class EditPersonCommandHandler : RequestHandlerBase<EditPersonCommand, ICommandResult>
+    public class EditPersonCommandHandler : RequestHandlerBase<EditPersonCommand, CommandResult>
     {
         private MembershipDbContext _dbContext;
 
@@ -19,7 +19,7 @@ namespace Contexts.Membership.Application.Commands.Persons
             _dbContext = dbContext;
         }
 
-        protected async override Task<ICommandResult> HandleCore(EditPersonCommand request, CancellationToken cancellationToken)
+        protected async override Task<CommandResult> HandleCore(EditPersonCommand request, CancellationToken cancellationToken)
         {
             await Execute<MembershipDbContext, Person>(_dbContext, request.Id, agg =>
             {
@@ -27,7 +27,7 @@ namespace Contexts.Membership.Application.Commands.Persons
                 agg.SetLastName(request.LastName);
             });
 
-            return CommandResult.CreateSuccessfulResult();
+            return CommandResult.CreateSuccessful();
         }
     }
 }

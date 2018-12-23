@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Contexts.Membership.Domain.Entities.PersonAggregate;
+using Contexts.Membership.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Contexts.Membership.Data
