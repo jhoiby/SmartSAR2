@@ -1,8 +1,8 @@
-﻿using SmartSAR.BC.Common.Bases;
-using SmartSAR.BC.Membership.Domain.Aggregates;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Contexts.Common.Bases;
+using Contexts.Membership.Domain.Entities.PersonAggregate;
 using Xunit;
 
 namespace UnitTests.Membership.Domain.Entities

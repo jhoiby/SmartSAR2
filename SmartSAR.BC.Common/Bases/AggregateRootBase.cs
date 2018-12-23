@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SmartSAR.BC.Common.Interfaces;
+﻿using Contexts.Common.Interfaces;
 
-namespace SmartSAR.BC.Common.Bases
+namespace Contexts.Common.Bases
 {
     public class AggregateRootBase : EntityBase, IAggregateRoot
     {

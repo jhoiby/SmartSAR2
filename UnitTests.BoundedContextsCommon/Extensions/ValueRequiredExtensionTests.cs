@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SmartSAR.BC.Common.Extensions;
+using Contexts.Common.Extensions;
 using Xunit;
 
 namespace UnitTests.BoundedContextsCommon.Extensions

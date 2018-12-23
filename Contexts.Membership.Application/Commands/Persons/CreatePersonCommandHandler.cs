@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Contexts.Common.Interfaces;
 using Contexts.Common.Results;
 using Contexts.Membership.Data;
+using Contexts.Membership.Domain.Entities.PersonAggregate;
 using MediatR;
-using SmartSAR.BC.Membership.Domain.Aggregates;
 
 namespace Contexts.Membership.Application.Commands.Persons
 {

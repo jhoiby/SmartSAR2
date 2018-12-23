@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using SmartSAR.BC.Common.Bases;
 
 namespace Contexts.Common.Bases
 {

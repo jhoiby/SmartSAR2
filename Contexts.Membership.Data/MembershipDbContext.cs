@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Contexts.Membership.Domain.Entities.PersonAggregate;
 using Microsoft.EntityFrameworkCore;
-using SmartSAR.BC.Membership.Domain.Aggregates;
 
 namespace Contexts.Membership.Data
 {

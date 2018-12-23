@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SmartSAR.BC.Common.Bases;
-using SmartSAR.BC.Common.Extensions;
+﻿using Contexts.Common.Bases;
+using Contexts.Common.Extensions;
 
-namespace SmartSAR.BC.Membership.Domain.Aggregates
+namespace Contexts.Membership.Domain.Entities.PersonAggregate
 {
     public class Person : AggregateRootBase
     {

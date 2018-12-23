@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace SmartSAR.BC.Common.Interfaces
+namespace Contexts.Common.Interfaces
 {
     public interface IEntity
     {
